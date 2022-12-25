@@ -35,7 +35,7 @@ F13 & x::^x
 F13 & z::^z
 F13 & Enter::^Enter
 F13 & Space::#s
-; https://superuser.com/questions/1246946/autohotkey-remapping-altshifttab-to-lwinshifttab
+
 F13 & Tab:: 
     AltTabMenu := true
     If GetKeyState("Shift","P")
@@ -44,12 +44,12 @@ F13 & Tab::
         Send {Alt Down}{Tab}
 return
 
-#If (AltTabMenu)
+If (AltTabMenu) {
     ~*F13 Up::
-        Send {Shift Up}{Alt Up}
+        Send {Shift Up}{Alt Up}{Tab Up}
         AltTabMenu := false 
     return
-#If
+}
 
 ; Windows keymap
 F13 & e::#e
