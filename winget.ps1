@@ -3,6 +3,7 @@ winget install AgileBits.1Password
 winget install Canonical.Ubuntu
 winget install Discord.Discord
 winget install Dropbox.Dropbox
+winget install Figma.Figma
 winget install Git.Git
 winget install Google.Chrome
 winget install Lexikos.AutoHotkey
