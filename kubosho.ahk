@@ -1,9 +1,18 @@
-#NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
-#UseHook, On
-#SingleInstance, force
-; F13 & Warn  ; Enable warnings to assist with detecting common errors.
-SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
-SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
+#Requires AutoHotkey v2
+#Include "%A_ScriptDir%"
+#UseHook True
+
+; State
+AltTabMenu := false
+
+set_ignore_emacs_keymap_applications() {
+    GroupAdd "EmacsKaymapIgnoreApplications", "ahk_class CASCADIA_HOSTING_WINDOW_CLASS" ; Windows Terminal
+}
+
+main() {
+    set_ignore_emacs_keymap_applications()
+}
+main()
 
 ; macOS like keymap
 F13 & /::^/
@@ -35,20 +44,17 @@ F13 & x::^x
 F13 & z::^z
 F13 & Enter::^Enter
 F13 & Space::#s
-
-F13 & Tab:: 
+F13 & Tab:: {
     AltTabMenu := true
-    If GetKeyState("Shift","P")
-        Send {Alt Down}{Shift Down}{Tab}
-    else
-        Send {Alt Down}{Tab}
-return
-
-If (AltTabMenu) {
-    ~*F13 Up::
-        Send {Shift Up}{Alt Up}{Tab Up}
-        AltTabMenu := false 
-    return
+    if GetKeyState("Shift") {
+        Send "{Shift Down}{Alt Down}{Tab Down}"
+    } else {
+        Send "{Alt Down}{Tab Down}"
+    }
+}
+*~F13 Up:: {
+    AltTabMenu := false
+    Send "{Alt Up}{Shift Up}{Tab Up}"
 }
 
 ; Windows keymap
@@ -59,20 +65,19 @@ F13 & Down::#Down
 F13 & Left::#Left
 
 ; Emacs like keymap
-#IfWinNotActive, ahk_exe WindowsTerminal.exe
-^p::Send,  {Up}
-^f::Send,  {Right}
-^n::Send,  {Down}
-^b::Send,  {Left}
-^+p::Send, {Shift}+{Up}
-^+f::Send, {Shift}+{Right}
-^+n::Send, {Shift}+{Down}
-^+b::Send, {Shift}+{Left}
-^a::Send,  {Home}
-^e::Send,  {End}
-^d::Send,  {Delete}
-^h::Send,  {BackSpace}
-^m::Send,  {Enter}
-^k::Send,  {Shift}+{End}{BackSpace}
-Return
-#IfWinNotActive
+#Hotif not WinActive("ahk_group EmacsKaymapIgnoreApplications")
+    ^p::Send  "{Up}"
+    ^f::Send  "{Right}"
+    ^n::Send  "{Down}"
+    ^b::Send  "{Left}"
+    ^+p::Send "{Shift}+{Up}"
+    ^+f::Send "{Shift}+{Right}"
+    ^+n::Send "{Shift}+{Down}"
+    ^+b::Send "{Shift}+{Left}"
+    ^a::Send  "{Home}"
+    ^e::Send  "{End}"
+    ^d::Send  "{Delete}"
+    ^h::Send  "{BackSpace}"
+    ^m::Send  "{Enter}"
+    ^k::Send  "{Shift}+{End}{BackSpace}"
+#Hotif
