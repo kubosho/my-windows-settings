@@ -48,14 +48,14 @@ F13 & Space::#s
 F13 & Tab:: {
     AltTabMenu := true
     if GetKeyState("Shift") {
-        Send "{Shift Down}{Alt Down}{Tab Down}"
+        SendInput "{Shift Down}{Alt Down}{Tab Down}"
     } else {
-        Send "{Alt Down}{Tab Down}"
+        SendInput "{Alt Down}{Tab Down}"
     }
 }
 *~F13 Up:: {
     AltTabMenu := false
-    Send "{Alt Up}{Shift Up}{Tab Up}"
+    SendInput "{Alt Up}{Shift Up}{Tab Up}"
 }
 
 ; Windows keymap
@@ -67,18 +67,18 @@ F13 & Left::#Left
 
 ; Emacs like keymap
 #Hotif not WinActive("ahk_group EmacsKaymapIgnoreApplications")
-    ^p::Send  "{Up}"
-    ^f::Send  "{Right}"
-    ^n::Send  "{Down}"
-    ^b::Send  "{Left}"
-    ^+p::Send "{Shift}+{Up}"
-    ^+f::Send "{Shift}+{Right}"
-    ^+n::Send "{Shift}+{Down}"
-    ^+b::Send "{Shift}+{Left}"
-    ^a::Send  "{Home}"
-    ^e::Send  "{End}"
-    ^d::Send  "{Delete}"
-    ^h::Send  "{BackSpace}"
-    ^m::Send  "{Enter}"
-    ^k::Send  "{Shift}+{End}{BackSpace}"
+    ^p::SendInput  "{Up}"
+    ^f::SendInput  "{Right}"
+    ^n::SendInput  "{Down}"
+    ^b::SendInput  "{Left}"
+    ^+p::SendInput "{Shift}+{Up}"
+    ^+f::SendInput "{Shift}+{Right}"
+    ^+n::SendInput "{Shift}+{Down}"
+    ^+b::SendInput "{Shift}+{Left}"
+    ^a::SendInput  "{Home}"
+    ^e::SendInput  "{End}"
+    ^d::SendInput  "{Delete}"
+    ^h::SendInput  "{BackSpace}"
+    ^m::SendInput  "{Enter}"
+    ^k::SendInput  "{Shift}+{End}{BackSpace}"
 #Hotif
