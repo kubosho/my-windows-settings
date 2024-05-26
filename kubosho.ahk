@@ -52,6 +52,7 @@ F13 & Tab:: {
     } else {
         SendInput "{Alt Down}{Tab Down}"
     }
+    Sleep 4
 }
 *~F13 Up:: {
     AltTabMenu := false
