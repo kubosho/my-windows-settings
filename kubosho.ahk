@@ -52,10 +52,15 @@ F13 & Tab:: {
     } else {
         SendInput "{Alt Down}{Tab Down}"
     }
-    Sleep 4
 }
-*~F13 Up:: {
+~F13:: {
+    KeyWait "F13"
     AltTabMenu := false
+    if GetKeyState("Shift") {
+        SendInput "{Shift Up}{Alt Up}{Tab Up}"
+    } else {
+        SendInput "{Alt Up}{Tab Up}"
+    }
     SendInput "{Alt Up}{Shift Up}{Tab Up}"
 }
 
