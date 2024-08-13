@@ -61,7 +61,11 @@ F13 & Tab:: {
     } else {
         SendInput "{Alt Up}{Tab Up}"
     }
-    SendInput "{Alt Up}{Shift Up}{Tab Up}"
+}
+F13 & LButton:: {
+    SendInput "{Control Down}"
+    MouseClick "left"
+    SendInput "{Control Up}"
 }
 
 ; Windows keymap
