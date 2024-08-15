@@ -53,8 +53,8 @@ F13 & Tab:: {
         SendInput "{Alt Down}{Tab Down}"
     }
 }
-~F13:: {
-    KeyWait "F13"
+~F13::Return
+F13 Up:: {
     AltTabMenu := false
     if GetKeyState("Shift") {
         SendInput "{Shift Up}{Alt Up}{Tab Up}"
