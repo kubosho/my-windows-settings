@@ -5,14 +5,7 @@
 ; State
 AltTabMenu := false
 
-set_ignore_emacs_keymap_applications() {
-    GroupAdd "EmacsKaymapIgnoreApplications", "ahk_class CASCADIA_HOSTING_WINDOW_CLASS" ; Windows Terminal
-}
-
-main() {
-    set_ignore_emacs_keymap_applications()
-}
-main()
+GroupAdd "EmacsKaymapIgnoreApplications", "ahk_class CASCADIA_HOSTING_WINDOW_CLASS" ; Windows Terminal
 
 ; macOS like keymap
 F13 & /::^/
