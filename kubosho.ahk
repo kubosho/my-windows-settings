@@ -5,8 +5,6 @@
 ; State
 AltTabMenu := false
 
-GroupAdd "EmacsKaymapIgnoreApplications", "ahk_class CASCADIA_HOSTING_WINDOW_CLASS" ; Windows Terminal
-
 ; macOS like keymap
 F13 & /::^/
 F13 & 1::^1
@@ -69,6 +67,7 @@ F13 & Down::#Down
 F13 & Left::#Left
 
 ; Emacs like keymap
+GroupAdd "EmacsKaymapIgnoreApplications", "ahk_class CASCADIA_HOSTING_WINDOW_CLASS" ; Windows Terminal
 #Hotif not WinActive("ahk_group EmacsKaymapIgnoreApplications")
     ^p::SendInput  "{Up}"
     ^f::SendInput  "{Right}"
