@@ -36,23 +36,6 @@ F13 & x::^x
 F13 & z::^z
 F13 & Enter::^Enter
 F13 & Space::#s
-F13 & Tab:: {
-    AltTabMenu := true
-    if GetKeyState("Shift") {
-        SendInput "{Shift Down}{Alt Down}{Tab Down}"
-    } else {
-        SendInput "{Alt Down}{Tab Down}"
-    }
-}
-~F13::Return
-F13 Up:: {
-    AltTabMenu := false
-    if GetKeyState("Shift") {
-        SendInput "{Shift Up}{Alt Up}{Tab Up}"
-    } else {
-        SendInput "{Alt Up}{Tab Up}"
-    }
-}
 F13 & LButton:: {
     SendInput "{Control Down}"
     MouseClick "left"
@@ -69,18 +52,18 @@ F13 & Left::#Left
 ; Emacs like keymap
 GroupAdd "EmacsKaymapIgnoreApplications", "ahk_class CASCADIA_HOSTING_WINDOW_CLASS" ; Windows Terminal
 #Hotif not WinActive("ahk_group EmacsKaymapIgnoreApplications")
-    ^p::SendInput  "{Up}"
-    ^f::SendInput  "{Right}"
-    ^n::SendInput  "{Down}"
-    ^b::SendInput  "{Left}"
-    ^+p::SendInput "{Shift}+{Up}"
-    ^+f::SendInput "{Shift}+{Right}"
-    ^+n::SendInput "{Shift}+{Down}"
-    ^+b::SendInput "{Shift}+{Left}"
-    ^a::SendInput  "{Home}"
-    ^e::SendInput  "{End}"
-    ^d::SendInput  "{Delete}"
-    ^h::SendInput  "{BackSpace}"
-    ^m::SendInput  "{Enter}"
-    ^k::SendInput  "{Shift}+{End}{BackSpace}"
+^p:: SendInput "{Up}"
+^f:: SendInput "{Right}"
+^n:: SendInput "{Down}"
+^b:: SendInput "{Left}"
+^+p:: SendInput "{Shift}+{Up}"
+^+f:: SendInput "{Shift}+{Right}"
+^+n:: SendInput "{Shift}+{Down}"
+^+b:: SendInput "{Shift}+{Left}"
+^a:: SendInput "{Home}"
+^e:: SendInput "{End}"
+^d:: SendInput "{Delete}"
+^h:: SendInput "{BackSpace}"
+^m:: SendInput "{Enter}"
+^k:: SendInput "{Shift}+{End}{BackSpace}"
 #Hotif
