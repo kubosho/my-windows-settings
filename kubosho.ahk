@@ -2,52 +2,49 @@
 #Include "%A_ScriptDir%"
 #UseHook True
 
-; State
-AltTabMenu := false
-
 ; macOS like keymap
-F13 & /::^/
-F13 & 1::^1
-F13 & 2::^2
-F13 & 3::^3
-F13 & 4::^4
-F13 & 5::^5
-F13 & 6::^6
-F13 & 7::^7
-F13 & 8::^8
-F13 & 9::^9
-F13 & 0::^0
-F13 & a::^a
-F13 & c::^c
-F13 & f::^f
-F13 & i::^i
-F13 & j::^j
-F13 & k::^k
-F13 & l::^l
-F13 & n::^n
-F13 & p::^p
-F13 & q::!F4
-F13 & r::^r
-F13 & s::^s
-F13 & t::^t
-F13 & v::^v
-F13 & w::^w
-F13 & x::^x
-F13 & z::^z
-F13 & Enter::^Enter
-F13 & Space::#s
-F13 & LButton:: {
+!/::^/
+!1::^1
+!2::^2
+!3::^3
+!4::^4
+!5::^5
+!6::^6
+!7::^7
+!8::^8
+!9::^9
+!0::^0
+!a::^a
+!c::^c
+!f::^f
+!i::^i
+!j::^j
+!k::^k
+!l::^l
+!n::^n
+!p::^p
+!q::!F4
+!r::^r
+!s::^s
+!t::^t
+!v::^v
+!w::^w
+!x::^x
+!z::^z
+!Enter::^Enter
+!Space::#s
+!LButton:: {
     SendInput "{Control Down}"
     MouseClick "left"
     SendInput "{Control Up}"
 }
 
 ; Windows keymap
-F13 & e::#e
-F13 & Up::#Up
-F13 & Right::#Right
-F13 & Down::#Down
-F13 & Left::#Left
+!e::#e
+!Up::#Up
+!Right::#Right
+!Down::#Down
+!Left::#Left
 
 ; Emacs like keymap
 GroupAdd "EmacsKaymapIgnoreApplications", "ahk_class CASCADIA_HOSTING_WINDOW_CLASS" ; Windows Terminal
