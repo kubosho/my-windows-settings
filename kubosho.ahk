@@ -45,6 +45,7 @@
 !Right::#Right
 !Down::#Down
 !Left::#Left
+!+e::^+e
 
 ; Emacs like keymap
 GroupAdd "EmacsKaymapIgnoreApplications", "ahk_class CASCADIA_HOSTING_WINDOW_CLASS" ; Windows Terminal
