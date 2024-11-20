@@ -9,8 +9,8 @@ winget install Google.Chrome
 winget install Lexikos.AutoHotkey
 winget install Microsoft.PowerToys
 winget install Microsoft.VisualStudioCode
-winget install Microsoft.WindowsTerminal
 winget install Mozilla.Firefox
 winget install OBSProject.OBSStudio
 winget install Obsidian.Obsidian
 winget install Zoom.Zoom
+winget install wez.wezterm
