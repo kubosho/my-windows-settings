@@ -49,6 +49,8 @@
 
 ; Emacs like keymap
 GroupAdd "EmacsKaymapIgnoreApplications", "ahk_class CASCADIA_HOSTING_WINDOW_CLASS" ; Windows Terminal
+GroupAdd "EmacsKaymapIgnoreApplications", "ahk_exe wezterm-gui.exe" ; WezTerm
+
 #Hotif not WinActive("ahk_group EmacsKaymapIgnoreApplications")
 ^p:: SendInput "{Up}"
 ^f:: SendInput "{Right}"
